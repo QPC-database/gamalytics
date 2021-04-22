@@ -1,26 +1,22 @@
 <template>
   <div>
     <label :for=id >{{message}}:</label> <br>
-    <input :type=type :id=id :name=id>
+    <input :type=type v-bind:value="value" v-on:input="$emit('input', $event.target.value)">
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component'
+import { defineComponent } from 'vue'
 
-@Options({
+export default defineComponent({
   props: {
     id: String,
     type: String,
-    message: String
+    message: String,
+    value: String
   }
 })
 
-export default class InputBox extends Vue {
-  id!: string
-  type!: string
-  message!: string
-}
 </script>
 
 <style scoped>

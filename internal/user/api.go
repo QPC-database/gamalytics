@@ -3,6 +3,7 @@ package user
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"github.com/gorilla/mux"
 	"github.com/vediagames/gamalytics/pkg/helpers"
 	"go.mongodb.org/mongo-driver/bson"
@@ -72,6 +73,8 @@ func getUser(w http.ResponseWriter, r *http.Request){
 		w.Write([]byte(`{"message":"` + err.Error() + `"}`))
 		return
 	}
+
+	fmt.Println(r)
 
 	userString, err := json.Marshal(user)
 	helpers.HandleError(err)

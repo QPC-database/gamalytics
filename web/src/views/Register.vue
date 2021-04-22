@@ -18,6 +18,7 @@
 <script>
 import { Options, Vue } from 'vue-class-component'
 import InputBox from '@/components/InputBox'
+import { IUser } from '@/types'
 
 @Options({
   name: 'Register',

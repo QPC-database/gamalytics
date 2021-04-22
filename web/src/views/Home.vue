@@ -1,15 +1,31 @@
 <template>
-  <p>Welcome to gamalytics</p>
+    <div v-if="loggedIn">
+      Welcome {{ user.firstname }}
+    </div>
+    <div v-else>
+      Welcome to Gamalytics, please: <Link link="login" name="log in"/> or <Link link="register" name="register a new account"/>
+    </div>
 </template>
 
-<script>
-import { Options, Vue } from 'vue-class-component'
+<script lang="ts">
+import { IUser } from '@/types'
+import { defineComponent } from 'vue'
+import Link from '@/components/Link.vue'
 
-@Options({
-  name: 'Home'
+export default defineComponent({
+  data () {
+    return {
+      user: {} as IUser,
+      loggedIn: false
+    }
+  },
+  async created () {
+    // this.user = (await getUser('antonio.jelic@vediagames.com')).data
+  },
+  components: {
+    Link
+  }
 })
-
-export default class Home extends Vue {}
 </script>
 
 <style scoped>

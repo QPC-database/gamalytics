@@ -3,19 +3,14 @@
 </template>
 
 <script lang="ts">
-import { Vue, Options } from 'vue-class-component'
+import { defineComponent } from 'vue'
 
-@Options({
+export default defineComponent({
   props: {
     link: String,
     name: String
   }
 })
-
-export default class Link extends Vue {
-  link!: string
-  name!: string
-}
 </script>
 
 <style scoped>
